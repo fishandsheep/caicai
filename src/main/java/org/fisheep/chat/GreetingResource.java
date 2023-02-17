@@ -1,3 +1,4 @@
+/*
 package org.fisheep.chat;
 
 import javax.ws.rs.GET;
@@ -13,4 +14,4 @@ public class GreetingResource {
     public String hello() {
         return "Hello from RESTEasy Reactive";
     }
-}
+}*/

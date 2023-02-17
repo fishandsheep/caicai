@@ -12,25 +12,23 @@ button.addEventListener('click', () => {
   messageElement.textContent = message;
   messages.appendChild(messageElement);
 
-  fetch('https://localhost:8080/gpt', {
+  fetch('/gpt', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      message: message
+      prompt: message
     })
   })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-      const botMessage = data.message;
-
-      const botMessageElement = document.createElement('div');
-      botMessageElement.classList.add('message');
-      botMessageElement.classList.add('chat-friend');
-      botMessageElement.textContent = botMessage;
-      messages.appendChild(botMessageElement);
-    });
+        const botMessageElement = document.createElement('div');
+        botMessageElement.classList.add('message');
+        botMessageElement.classList.add('chat-friend');
+       botMessageElement.textContent = data;
+       messages.appendChild(botMessageElement);
+      });
 });
 
 input.addEventListener('keydown', (event) => {

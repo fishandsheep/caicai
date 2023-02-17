@@ -1,11 +1,12 @@
 package org.fisheep.chat.entity;
 
 public class GptRequest {
+    //{"model": "text-davinci-003", "prompt": "Say this is a test", "temperature": 0, "max_tokens": 7}
+
+    private String model;
     private String prompt;
     private int max_tokens;
     private double temperature;
-
-    // getters and setters
 
 
     public String getPrompt() {
@@ -30,5 +31,13 @@ public class GptRequest {
 
     public void setTemperature(double temperature) {
         this.temperature = temperature;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

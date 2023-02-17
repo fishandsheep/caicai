@@ -1,34 +1,60 @@
 package org.fisheep.chat.entity;
 
+import java.util.List;
+
 public class GptResponse {
-    private String text;
-    private String choices;
-    private String completions;
+    private String id;
+    private String object;
+    private long created;
+    private String model;
+    private List<Choice> choices;
+    private Usage usage;
 
-    // getters and setters
-
-
-    public String getText() {
-        return text;
+    public String getId() {
+        return id;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getChoices() {
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public long getCreated() {
+        return created;
+    }
+
+    public void setCreated(long created) {
+        this.created = created;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public List<Choice> getChoices() {
         return choices;
     }
 
-    public void setChoices(String choices) {
+    public void setChoices(List<Choice> choices) {
         this.choices = choices;
     }
 
-    public String getCompletions() {
-        return completions;
+    public Usage getUsage() {
+        return usage;
     }
 
-    public void setCompletions(String completions) {
-        this.completions = completions;
+    public void setUsage(Usage usage) {
+        this.usage = usage;
     }
 }
