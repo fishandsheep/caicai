@@ -1,0 +1,41 @@
+/* 聊天框 */
+.chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* 消息列表 */
+  .chat .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  /* 输入框 */
+  .chat .input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #F5F5F5;
+  }
+  
+  .chat .input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+  
+  .chat .input button {
+    padding: 10px;
+    background-color: #337AB7;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
