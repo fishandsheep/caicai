@@ -12,7 +12,7 @@ button.addEventListener('click', () => {
   messageElement.textContent = message;
   messages.appendChild(messageElement);
 
-  fetch('https://8080-fishandsheep-caicai-n1h87k0yx4z.ws-us87.gitpod.io', {
+  fetch('https://localhost:8080/gpt', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
