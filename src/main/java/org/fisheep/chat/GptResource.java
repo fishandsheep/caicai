@@ -32,7 +32,7 @@ public class GptResource {
         Response response = client.target("https://api.openai.com/v1/completions")
                 .request(MediaType.APPLICATION_JSON)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer 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") // 替换为您的 ChatGPT API 密钥
+                .header("Authorization", "Bearer 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") // 替换为您的 ChatGPT API 密钥
                 .post(Entity.entity(request, MediaType.APPLICATION_JSON));
         StringBuffer responseTxt = new StringBuffer();
         try {
