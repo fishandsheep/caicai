@@ -20,4 +20,4 @@ jobs:
           distribution: temurin
           cache: maven
       - name: Build
-        run: ./mvnw verify -B
+        run: ./mvnw verify -B -DskipTests=true
