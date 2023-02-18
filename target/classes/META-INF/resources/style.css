@@ -1,0 +1,113 @@
+/* 聊天框 */
+.chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 300px;
+  }
+  
+  /* 消息列表 */
+  .chat .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  /* 输入框 */
+  .chat .input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #F5F5F5;
+  }
+  
+  .chat .input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+  
+  .chat .input button {
+    padding: 10px;
+    background-color: #337AB7;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* 消息气泡 */
+  .chat .message {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px #AAAAAA;
+  }
+
+  /* 机器人消息 */
+  .chat .message.chat-friend {
+    background-color: #E1EEF7;
+  }
+
+  .chat .message.chat-friend:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #E1EEF7;
+    border-bottom: 10px solid transparent;
+  }
+
+  .chat .message.chat-friend:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -14px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-right: 14px solid #F5F5F5;
+    border-bottom: 14px solid transparent;
+  }
+
+  /* 用户消息 */
+  .chat .message.chat-self {
+    background-color: #F1F0F0;
+    align-self: flex-end;
+  }
+
+  .chat .message.chat-self:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #F1F0F0;
+    border-bottom: 10px solid transparent;
+  }
+
+  .chat .message.chat-self:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -14px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #F5F5F5;
+    border-bottom: 14px solid transparent;
+  }
