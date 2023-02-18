@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: caicai
-          image: caicai-ubuntu:latest
+          image: qinshower/caicai-ubuntu:1.0
           ports:
             - containerPort: 8080
         - env:
