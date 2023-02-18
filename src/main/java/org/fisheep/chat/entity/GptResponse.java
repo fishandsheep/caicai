@@ -1,7 +1,10 @@
 package org.fisheep.chat.entity;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import java.util.List;
 
+@RegisterForReflection
 public class GptResponse {
     private String id;
     private String object;

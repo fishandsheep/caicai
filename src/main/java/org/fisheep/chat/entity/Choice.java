@@ -1,5 +1,8 @@
 package org.fisheep.chat.entity;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class Choice {
     private String text;
     private long index;

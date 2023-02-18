@@ -1,10 +1,12 @@
 package org.fisheep.chat;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.fisheep.chat.entity.Choice;
 import org.fisheep.chat.entity.GptRequest;
 import org.fisheep.chat.entity.GptResponse;
 
+import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -17,6 +19,11 @@ import java.util.List;
 
 @Path("/gpt")
 public class GptResource {
+
+
+    @Inject
+    @ConfigProperty(name = "openai.key")
+    private String openaiKey;
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -32,7 +39,8 @@ public class GptResource {
         Response response = client.target("https://api.openai.com/v1/completions")
                 .request(MediaType.APPLICATION_JSON)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer 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") // 替换为您的 ChatGPT API 密钥
+                .header("Authorization", "Bearer " + openaiKey) // 替换为您的 ChatGPT API 密钥
+                .header("OpenAI-Organization", "org-LJOwqk4GiSXl4GLEjVggVlIe")
                 .post(Entity.entity(request, MediaType.APPLICATION_JSON));
         StringBuffer responseTxt = new StringBuffer();
         try {

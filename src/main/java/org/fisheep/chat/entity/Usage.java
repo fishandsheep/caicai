@@ -1,5 +1,8 @@
 package org.fisheep.chat.entity;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class Usage {
 
     private int prompt_tokens;
