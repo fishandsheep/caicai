@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: caicai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: caicai
+  template:
+    metadata:
+      labels:
+        app: caicai
+    spec:
+      containers:
+        - name: caicai
+          image: caicai-ubuntu:latest
+          ports:
+            - containerPort: 8080
+        - env:
+            - name: OPENAI_KEY
+              value: "replace_key"
