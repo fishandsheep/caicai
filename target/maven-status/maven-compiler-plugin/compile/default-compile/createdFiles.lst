@@ -1,0 +1,5 @@
+org/fisheep/chat/GptResource.class
+org/fisheep/chat/entity/Choice.class
+org/fisheep/chat/entity/Usage.class
+org/fisheep/chat/entity/GptResponse.class
+org/fisheep/chat/entity/GptRequest.class
