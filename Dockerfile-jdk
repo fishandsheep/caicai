@@ -1,0 +1,18 @@
+# 使用Java 11的基础镜像
+FROM openjdk:11-jre-slim
+
+# 设置工作目录
+WORKDIR /app
+
+# 将本地生成的jar及其依赖复制到镜像内
+COPY target/quarkus-app /app/quarkus-app/
+
+# 设置环境变量
+ENV OPENAI_KEY="replace_key"
+
+RUN chmod +x /app/quarkus-app/quarkus-run.jar
+
+EXPOSE 80
+
+# 指定容器启动时要运行的命令
+CMD ["java", "-jar", "quarkus-app/quarkus-run.jar"]

@@ -53,7 +53,6 @@ public class GptResource {
             e.printStackTrace();
             responseTxt.append("未知错误,\uD83D\uDE33");
         }
-        //TODO 添加表情
         return responseTxt.toString();
     }
 }
