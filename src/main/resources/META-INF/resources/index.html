@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>ChatGPT Bot</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>ChatGPT CaiCai</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="chat">
-    <div class="messages"></div>
-    <div class="input">
-      <input type="text" placeholder="Type a message...">
-      <button>Send</button>
+    <div class="container">
+        <div class="chatbox">
+            <div class="header">
+                <h1>ChatGPT CaiCai</h1>
+            </div>
+            <div class="conversation">
+				<div class="message">
+					<div class="message-bot">
+						<p>Hello! How can I assist you?</p>
+					</div>
+					  <div class="message-user">
+						<p>Hello! How can I assist you?</p>
+					</div>
+				</div>
+			</div>
+            <div class="input-box">
+                <input type="text" placeholder="Type your message here...">
+                <button type="button" id="send-btn">Send</button>
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+	<script src="marked.min.js"></script>
 </body>
 </html>

@@ -1,38 +1,59 @@
-const messages = document.querySelector('.messages');
-const input = document.querySelector('input');
-const button = document.querySelector('button');
+const chatbox = document.querySelector('.chatbox');
+const conversation = document.querySelector('.message');
+const inputBox = document.querySelector('.input-box');
+const input = document.querySelector('input[type="text"]');
+const sendBtn = document.querySelector('#send-btn');
 
-button.addEventListener('click', () => {
-  const message = input.value;
-  input.value = '';
-
-  const messageElement = document.createElement('div');
-  messageElement.classList.add('message');
-  messageElement.classList.add('chat-self');
-  messageElement.textContent = message;
-  messages.appendChild(messageElement);
-
-  fetch('/gpt', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      prompt: message
-    })
-  })
-    .then(response => response.text())
-    .then(data => {
-        const botMessageElement = document.createElement('div');
-        botMessageElement.classList.add('message');
-        botMessageElement.classList.add('chat-friend');
-       botMessageElement.textContent = data;
-       messages.appendChild(botMessageElement);
-      });
+// 回车键发送消息
+input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        sendBtn.click();
+    }
 });
 
-input.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    button.click();
-  }
+sendBtn.addEventListener('click', function() {
+    const message = input.value;
+    if (message.trim() !== '') {
+        addMessage('user', message);
+        getResponse(message);
+        input.value = '';
+    }
 });
+
+function addMessage(sender, message) {
+	
+	message = marked.parse(message);
+	
+    const msgDiv = document.createElement('div');
+    
+    if (sender === 'bot') {
+		msgDiv.classList.add('message-bot');
+    } else if (sender === 'user') {	
+		msgDiv.classList.add('message-user');
+    }
+	msgDiv.innerHTML = `<p>${message}</p>`
+    conversation.appendChild(msgDiv);
+    conversation.scrollTop = conversation.scrollHeight;
+}
+
+async function getResponse(message) {
+    const url = '/gpt';
+    const prompt = `${message}`;
+    const body = {
+        prompt: prompt
+    };
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(body),
+        });
+        const botMessage = await response.text();
+        addMessage('bot', botMessage);
+    } catch (error) {
+        console.error(error);
+    }
+}
